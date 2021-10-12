@@ -5,6 +5,7 @@
       <list>
         <option value="$PROJECT_DIR$/BDS-Customer/pom.xml" />
         <option value="$PROJECT_DIR$/BDS-APIGateway/pom.xml" />
+        <option value="$PROJECT_DIR$/BDS-Agent/pom.xml" />
       </list>
     </option>
   </component>
