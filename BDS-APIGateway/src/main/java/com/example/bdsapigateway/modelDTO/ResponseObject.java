@@ -1,4 +1,10 @@
-package com.bdsagent.model;
+package com.example.bdsapigateway.modelDTO;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
+
 
 public class ResponseObject {
 

@@ -15,15 +15,18 @@
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="BDS-Agent" target="11" />
+      <module name="BDS-Agent1" target="11" />
       <module name="BDS-APIGateway" target="11" />
       <module name="BDS-Customer" target="1.8" />
       <module name="universityApp" target="1.8" />
+      <module name="wrapper" target="1.5" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="BDS-APIGateway" options="-parameters" />
       <module name="BDS-Agent" options="-parameters" />
+      <module name="BDS-Agent1" options="-parameters" />
       <module name="BDS-Customer" options="-parameters" />
       <module name="universityApp" options="-parameters" />
     </option>

@@ -14,4 +14,6 @@ public interface CustomerRepository extends ReactiveMongoRepository<Customer, St
     Flux<Customer> findCustomerByAgentIdExists(boolean exists);
 
     Flux<Customer> findByRequirementsPrice(double price);
+
+    Flux<Customer> findByAgentId(Long agentId);
 }

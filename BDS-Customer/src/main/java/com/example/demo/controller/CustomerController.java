@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
-@RequestMapping("customer")
+@RequestMapping("customers")
 @AllArgsConstructor
 @RestController
 public class CustomerController {
@@ -26,6 +26,11 @@ public class CustomerController {
         return customerService.getById(id);
     }
 
+    @GetMapping("agent/{id}")
+    public Flux<Customer> getById(@PathVariable("id") Long id) {
+        return customerService.findByAgentId(id);
+    }
+
     @GetMapping("/requirement")
     public Flux<Customer> getAllByRequirement() {
         boolean exist = true;
@@ -34,7 +39,7 @@ public class CustomerController {
 
     @GetMapping("/agent")
     public Flux<Customer> getAllByAgent() {
-        boolean exist = true;
+        boolean exist = false;
         return customerService.findCustomerByAgentIdExists(exist);
     }
 

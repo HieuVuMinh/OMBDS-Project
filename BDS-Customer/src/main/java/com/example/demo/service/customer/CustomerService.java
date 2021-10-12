@@ -51,4 +51,9 @@ public class CustomerService implements ICustomerService{
     public Flux<Customer> findCustomerByAgentIdExists(boolean exists) {
         return customerRepository.findCustomerByAgentIdExists(exists);
     }
+
+    @Override
+    public Flux<Customer> findByAgentId(Long agentId) {
+        return customerRepository.findByAgentId(agentId);
+    }
 }
