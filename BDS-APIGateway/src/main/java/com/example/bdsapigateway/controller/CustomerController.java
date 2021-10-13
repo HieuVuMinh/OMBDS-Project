@@ -10,7 +10,7 @@ import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 @RestController
-@RequestMapping("api-gateway")
+@RequestMapping("api/v1")
 public class CustomerController {
 
     @Autowired
@@ -19,12 +19,12 @@ public class CustomerController {
     @Autowired
     private AgentGatewayService agentGatewayService;
 
-    @GetMapping("/customer")
+    @GetMapping("/customers")
     private Flux<Customer> findAllCustomer(){
         return customerGatewayService.findAllCustomer();
     }
 
-    @GetMapping("/customer/agent-id/{id}")
+    @GetMapping("/customers/agent-id/{id}")
     public Flux<Customer> findCustomerByAgentId(@PathVariable("name") Long id){
         Agent monoAgent = agentGatewayService.findByAgentId(id).block();
 
@@ -35,12 +35,12 @@ public class CustomerController {
         return null;
     }
 
-    @GetMapping("/customer/agent-exist")
+    @GetMapping("/customers/agent-exist")
     public Flux<Customer> findCustomerHaveNoAssistance(){
         return customerGatewayService.findCustomerHaveNoAssistance();
     }
 
-    @GetMapping("/customers/{id}")
+    @GetMapping("/customer/{id}")
     public Mono<Customer> findCustomerById(String id){
         return customerGatewayService.findCustomerById(id);
     }
@@ -52,5 +52,10 @@ public class CustomerController {
         customerMono.setAgentId(idAgent);
 
         return customerGatewayService.updateCustomerAssistanceByAgent(idCustomer, customerMono);
+    }
+
+    @PostMapping("/customer")
+    public Mono<Customer> createCustomer(@RequestBody Customer customer){
+        return customerGatewayService.createCustomer(customer);
     }
 }
