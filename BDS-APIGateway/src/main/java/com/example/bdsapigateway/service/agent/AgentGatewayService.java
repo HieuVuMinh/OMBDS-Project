@@ -15,12 +15,21 @@ public class AgentGatewayService implements IAgentGatewayService {
     public WebClient webClient = WebClient.create();
 
     @Autowired
-    Environment env;
+    Environment environment;
+
+    @Override
+    public Mono<Agent> createAgent(Agent agent) {
+        return webClient.post()
+                .uri(environment.getProperty("BASE_URL_AGENT")+"/agents")
+                .body(Mono.just(agent), Agent.class)
+                .retrieve()
+                .bodyToMono(Agent.class);
+    }
 
     @Override
     public Flux<Agent> findAllAgent() {
         return webClient.get()
-                .uri(env.getProperty("BASE_URL_AGENT")+"/agents")
+                .uri(environment.getProperty("BASE_URL_AGENT")+"/agents")
                 .retrieve()
                 .bodyToFlux(Agent.class);
     }
@@ -28,7 +37,7 @@ public class AgentGatewayService implements IAgentGatewayService {
     @Override
     public Mono<Agent> findByAgentId(Long id) {
         return webClient.get()
-                .uri(env.getProperty("BASE_URL_AGENT")+"/agents/" + id)
+                .uri(environment.getProperty("BASE_URL_AGENT")+"/agents/" + id)
                 .retrieve()
                 .bodyToMono(Agent.class);
     }

@@ -10,20 +10,39 @@ import io.swagger.annotations.ApiResponses;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 @RestController
-@RequestMapping("/api-gateway")
+@RequestMapping("/api/v1")
 @Api(value="onlinestore", description="API Agent")
 public class AgentController {
 
     @Autowired
     private AgentGatewayService agentGatewayService;
+
+
+    @ApiOperation(value = "Thêm Agent",response = Agent.class)
+    @ApiResponses(value = {
+            @ApiResponse(code = 200, message = "Trả ra dữ liệu thành công!"),
+            @ApiResponse(code = 401, message = "Xác thực thất bại!"),
+            @ApiResponse(code = 403, message = "Cố tình truy cập trái phép!"),
+            @ApiResponse(code = 404, message = "Không tồn tại!")
+    }
+    )
+    @PostMapping("agent")
+    private ResponseEntity<?> createAgent(@RequestBody Agent agent){
+        Agent agentObject = agentGatewayService.createAgent(agent).block();
+        if(agentObject != null){
+            return ResponseEntity.status(HttpStatus.OK).body(
+                    new ResponseObject("OK","Thêm dữ liệu thành công!", agentObject)
+            );
+        }
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(
+                new ResponseObject("Not Found","Thêm dữ liệu thất bại!", agentObject)
+        );
+    }
 
 
     @ApiOperation(value = "Lấy ra tất cả Agent",response = Agent.class)
@@ -35,7 +54,7 @@ public class AgentController {
     }
     )
     @GetMapping("agents")
-    private Flux<Agent> findAllCustomer(){
+    private Flux<Agent> findAllAgent(){
 //        Flux<Agent> listAgent = agentGatewayService.findAllAgent();
 //        if(listAgent != null){
 //            return ResponseEntity.status(HttpStatus.OK).body(
@@ -57,8 +76,8 @@ public class AgentController {
             @ApiResponse(code = 404, message = "Không tồn tại!")
     }
     )
-    @GetMapping("agents/name/{id}")
-    public ResponseEntity<?> findByLastName(@PathVariable("id") Long id) {
+    @GetMapping("agents/{id}")
+    public ResponseEntity<?> findById(@PathVariable("id") Long id) {
         Agent agent = agentGatewayService.findByAgentId(id).block();
         if(agent != null){
             return ResponseEntity.status(HttpStatus.OK).body(
