@@ -16,7 +16,7 @@ import reactor.core.publisher.Mono;
 
 @RestController
 @RequestMapping("/api/v1")
-@Api(value="onlinestore", description="API Agent")
+@Api(value="onlinestore", description="Demo API Agent")
 public class AgentController {
 
     @Autowired
