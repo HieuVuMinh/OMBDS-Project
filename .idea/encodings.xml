@@ -4,5 +4,6 @@
     <file url="file://$PROJECT_DIR$/BDS-APIGateway/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/BDS-Agent/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/BDS-Customer/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Inventory/src/main/java" charset="UTF-8" />
   </component>
 </project>

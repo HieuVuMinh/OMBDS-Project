@@ -5,6 +5,7 @@
       <module fileurl="file://$PROJECT_DIR$/BDS-APIGateway/BDS-APIGateway.iml" filepath="$PROJECT_DIR$/BDS-APIGateway/BDS-APIGateway.iml" />
       <module fileurl="file://$PROJECT_DIR$/BDS-Agent/BDS-Agent.iml" filepath="$PROJECT_DIR$/BDS-Agent/BDS-Agent.iml" />
       <module fileurl="file://$PROJECT_DIR$/BDS-Customer/BDS-Customer.iml" filepath="$PROJECT_DIR$/BDS-Customer/BDS-Customer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Inventory/Inventory.iml" filepath="$PROJECT_DIR$/Inventory/Inventory.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/OMBDS-Project.iml" filepath="$PROJECT_DIR$/.idea/OMBDS-Project.iml" />
       <module fileurl="file://$PROJECT_DIR$/BDS-Customer/universityApp.iml" filepath="$PROJECT_DIR$/BDS-Customer/universityApp.iml" />
     </modules>
