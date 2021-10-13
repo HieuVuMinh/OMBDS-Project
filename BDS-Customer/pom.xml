@@ -11,7 +11,8 @@
     <groupId>com.reactiveCRUD</groupId>
     <artifactId>universityApp</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>universityApp</name>
+    <name>BDS-APIGateway</name>
+<!--    <name>universityApp</name>-->
     <description>SpringFlux Restful CRUD example</description>
 
     <properties>

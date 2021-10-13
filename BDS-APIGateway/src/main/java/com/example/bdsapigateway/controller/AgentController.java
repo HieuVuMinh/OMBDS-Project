@@ -27,5 +27,4 @@ public class AgentController {
         return agentGatewayService.findByAgentId(id);
     }
 
-
 }
