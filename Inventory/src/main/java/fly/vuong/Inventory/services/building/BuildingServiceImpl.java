@@ -4,6 +4,7 @@ import fly.vuong.Inventory.entities.Building;
 import fly.vuong.Inventory.entities.dto.BuildingDto;
 import fly.vuong.Inventory.repositories.BuildingRepository;
 import fly.vuong.Inventory.request.AddBuildingRequest;
+import fly.vuong.Inventory.request.UpdateBuildingRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -40,14 +41,14 @@ public class BuildingServiceImpl implements BuildingService {
     public List<BuildingDto> findByName(String name) {
         return convertFromListEntity(repository.findByNameContains(name));
     }
-//
-//    @Override
-//    public BuildingDto updateBuilding(UpdateBuildingRequest request) {
-//        Building building = new Building();
-//        building.setName(request.getName());
-//        repository.save(building);
-//        return null;
-//    }
+
+    @Override
+    public BuildingDto updateBuilding(UpdateBuildingRequest request) {
+        Building building = new Building();
+        building.setName(request.getName());
+        repository.save(building);
+        return null;
+    }
 
     public BuildingDto convertFromBuilding(Building building) {
         BuildingDto buildingDto = new BuildingDto();
