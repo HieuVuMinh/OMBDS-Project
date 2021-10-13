@@ -14,6 +14,11 @@ public class AgentService implements IAgentService{
     private IAgentRepository agentRepository;
 
     @Override
+    public Agent createAgent(Agent agent) {
+        return agentRepository.save(agent);
+    }
+
+    @Override
     public Agent findById(Long id) {
         return agentRepository.findAgentById(id);
     }

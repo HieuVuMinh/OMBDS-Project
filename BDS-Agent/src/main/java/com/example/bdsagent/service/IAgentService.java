@@ -7,6 +7,8 @@ import java.util.List;
 
 public interface IAgentService {
 
+    Agent createAgent (Agent agent);
+
     Agent findById (Long id);
 
     List<Agent> findAll ();
