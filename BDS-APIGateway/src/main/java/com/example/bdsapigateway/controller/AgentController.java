@@ -21,16 +21,17 @@ public class AgentController {
     private AgentGatewayService agentGatewayService;
 
     @GetMapping("agents")
-    private ResponseEntity<?> findAllCustomer(){
-        Flux<Agent> listAgent = agentGatewayService.findAllAgent();
-        if(listAgent != null){
-            return ResponseEntity.status(HttpStatus.OK).body(
-                    new ResponseObject("OK","Trả dữ liệu thành công!", listAgent.buffer())
-            );
-        }
-        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(
-                new ResponseObject("Not Found","Agent không có dữ liệu!", listAgent)
-        );
+    private Flux<Agent> findAllCustomer(){
+//        Flux<Agent> listAgent = agentGatewayService.findAllAgent();
+//        if(listAgent != null){
+//            return ResponseEntity.status(HttpStatus.OK).body(
+//                    new ResponseObject("OK","Trả dữ liệu thành công!", listAgent.publish())
+//            );
+//        }
+//        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(
+//                new ResponseObject("Not Found","Agent không có dữ liệu!", listAgent)
+//        );
+        return agentGatewayService.findAllAgent();
     }
 
     @GetMapping("agents/name/{id}")
