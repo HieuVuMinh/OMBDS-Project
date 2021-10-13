@@ -20,7 +20,7 @@ public class AgentService implements IAgentService{
 
     @Override
     public Agent findById(Long id) {
-        return agentRepository.findAgentById(id);
+        return agentRepository.findAgentByAgentId(id);
     }
 
     @Override

@@ -15,7 +15,7 @@ import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 @RestController
-@RequestMapping("/api/v1")
+@RequestMapping("/api/v1/agents")
 @Api(value="onlinestore", description="Demo API Agent")
 public class AgentController {
 
@@ -31,7 +31,7 @@ public class AgentController {
             @ApiResponse(code = 404, message = "Không tồn tại!")
     }
     )
-    @PostMapping("agent")
+    @PostMapping()
     private ResponseEntity<?> createAgent(@RequestBody Agent agent){
         Agent agentObject = agentGatewayService.createAgent(agent).block();
         if(agentObject != null){
@@ -53,7 +53,7 @@ public class AgentController {
             @ApiResponse(code = 404, message = "Không tồn tại!")
     }
     )
-    @GetMapping("agents")
+    @GetMapping()
     private Flux<Agent> findAllAgent(){
 //        Flux<Agent> listAgent = agentGatewayService.findAllAgent();
 //        if(listAgent != null){
@@ -76,7 +76,7 @@ public class AgentController {
             @ApiResponse(code = 404, message = "Không tồn tại!")
     }
     )
-    @GetMapping("agents/{id}")
+    @GetMapping("/{id}")
     public ResponseEntity<?> findById(@PathVariable("id") Long id) {
         Agent agent = agentGatewayService.findByAgentId(id).block();
         if(agent != null){
