@@ -35,7 +35,7 @@ public class ApartmentServiceImpl implements ApartmentService {
         apartment.setSuperficies(request.getSuperficies());
         apartment.setBedRoom(request.getBedRoom());
         apartment.setStatus(true);
-
+        apartmentRepository.save(apartment);
         return convertFromApartment(apartment);
     }
 

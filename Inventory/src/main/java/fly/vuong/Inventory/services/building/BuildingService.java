@@ -2,6 +2,7 @@ package fly.vuong.Inventory.services.building;
 
 import fly.vuong.Inventory.entities.dto.BuildingDto;
 import fly.vuong.Inventory.request.AddBuildingRequest;
+import fly.vuong.Inventory.request.UpdateBuildingRequest;
 
 import java.util.List;
 import java.util.UUID;
@@ -15,6 +16,6 @@ public interface BuildingService {
 
     List<BuildingDto> findByName(String name);
 
-//    BuildingDto updateBuilding(UpdateBuildingRequest request);
+    BuildingDto updateBuilding(UpdateBuildingRequest request);
 
 }
